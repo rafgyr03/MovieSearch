@@ -4,6 +4,7 @@
     Author     : Rafael
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,12 @@
             <br /><br />
             <input type="submit" value="Search" />
         </form>
-
+        <c:if test="${!empty movies}">
+           <h2>Movies</h2>
+        </c:if>
+        <c:forEach var="movie" items="${movies}">
+            <p>${movie.Title} (${movie.Year})</p>
+            <img src="${movie.Poster}" alt="Poster" height="250" width="170">
+        </c:forEach>
     </body>
 </html>
